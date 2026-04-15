@@ -1,6 +1,9 @@
 name: gradle
 description: Gradle build tool (latest release)
 
+packages:
+  - unzip
+
 run:
   - |
     GRADLE_VERSION=$(curl -s https://services.gradle.org/versions/current | grep -oP '"version"\s*:\s*"\K[^"]+') &&
