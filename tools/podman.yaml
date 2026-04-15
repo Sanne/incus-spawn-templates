@@ -1,0 +1,21 @@
+name: podman
+description: Podman container runtime configured for Testcontainers
+
+packages:
+  - podman
+
+run:
+  - |
+    printf '#!/bin/sh\nexec sudo /usr/bin/podman "$@"\n' > /usr/local/bin/podman &&
+    chmod +x /usr/local/bin/podman &&
+    ln -sf /usr/local/bin/podman /usr/local/bin/docker
+  - |
+    systemctl enable podman.socket &&
+    echo 'd /run/podman 0755 root root -' > /etc/tmpfiles.d/podman-socket.conf &&
+    ln -sf /run/podman/podman.sock /var/run/docker.sock
+
+env:
+  - export DOCKER_HOST=unix:///var/run/docker.sock
+  - export TESTCONTAINERS_RYUK_DISABLED=true
+
+verify: podman info --format '{{.Host.RemoteSocket.Path}}'

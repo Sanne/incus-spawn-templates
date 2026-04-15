@@ -1,0 +1,7 @@
+name: tpl-hibernate-reactive
+description: Hibernate Reactive development (JDK + Maven + source)
+parent: tpl-java
+tools:
+  - podman
+  - gradle
+  - hibernate-reactive-src
