@@ -1,0 +1,14 @@
+name: tpl-tamboui
+description: TamboUI (JDK + source)
+parent: tpl-java
+tools:
+  - gradle
+repos:
+  - url: https://github.com/tamboui/tamboui
+    path: ~/tamboui
+    prime: ./gradlew dependencies
+skills:
+  repo: maxandersen/skills
+  list:
+    - jreleaser
+    - prefer-jbang-automation
