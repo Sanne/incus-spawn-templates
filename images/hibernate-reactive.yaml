@@ -1,13 +1,7 @@
 name: tpl-hibernate-reactive
-description: Hibernate Reactive development (JDK + Maven + source)
-parent: tpl-java
-tools:
-  - podman
-  - gradle
+description: Hibernate Reactive development (JDK + Maven + source, includes Hibernate ORM sources)
+parent: tpl-hibernate-orm
 repos:
   - url: https://github.com/hibernate/hibernate-reactive.git
     path: ~/hibernate-reactive
-    prime: gradle dependencies
-  - url: https://github.com/hibernate/hibernate-orm.git
-    path: ~/hibernate-orm
     prime: gradle dependencies
