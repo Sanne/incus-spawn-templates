@@ -1,7 +1,0 @@
-name: hibernate-reactive-src
-description: Clone Hibernate Reactive source from GitHub
-
-run_as_user:
-  - git clone https://github.com/hibernate/hibernate-reactive.git ~/hibernate-reactive
-
-verify: test -d ~/hibernate-reactive/.git

@@ -4,4 +4,9 @@ parent: tpl-java
 tools:
   - podman
   - gradle
-  - quarkus-src
+repos:
+  - url: https://github.com/quarkusio/quarkus.git
+    path: ~/quarkus
+    prime: mvn -B dependency:go-offline
+  - url: https://github.com/quarkusio/quarkus-quickstarts
+    path: ~/quarkus-quickstarts

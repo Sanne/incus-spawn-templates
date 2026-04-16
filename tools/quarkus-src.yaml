@@ -1,7 +1,0 @@
-name: quarkus-src
-description: Clone Quarkus source from GitHub
-
-run_as_user:
-  - git clone https://github.com/quarkusio/quarkus.git ~/quarkus
-
-verify: test -d ~/quarkus/.git

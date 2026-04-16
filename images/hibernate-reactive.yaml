@@ -4,4 +4,10 @@ parent: tpl-java
 tools:
   - podman
   - gradle
-  - hibernate-reactive-src
+repos:
+  - url: https://github.com/hibernate/hibernate-reactive.git
+    path: ~/hibernate-reactive
+    prime: gradle dependencies
+  - url: https://github.com/hibernate/hibernate-orm.git
+    path: ~/hibernate-orm
+    prime: gradle dependencies
