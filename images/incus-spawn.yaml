@@ -1,0 +1,11 @@
+name: tpl-incus-spawn
+description: Recursive Development of Incus Spawn (isx)
+parent: tpl-java
+packages:
+  - incus
+  - copr-cli
+  - lxc-devel
+repos:
+  - url: https://github.com/Sanne/incus-spawn/
+    path: ~/incus-spawn
+    prime: mvn -B install
