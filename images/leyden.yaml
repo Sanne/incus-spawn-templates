@@ -1,0 +1,7 @@
+name: tpl-leyden
+description: OpenJDK Leyden development (startup/warmup optimizations)
+parent: tpl-openjdk
+repos:
+  - url: https://github.com/openjdk/leyden.git
+    path: ~/leyden
+    branch: premain
