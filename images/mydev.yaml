@@ -1,6 +1,8 @@
 name: tpl-mydev
 description: Host-specific sharing layer
 parent: tpl-java
+packages:
+  - tig
 host-resources:
   - source: ~/.local/share/containers/storage
     path: /mnt/podman-host-storage
