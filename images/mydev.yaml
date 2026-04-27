@@ -5,6 +5,8 @@ tools:
   - podman
   - gradle
   - idea-backend
+packages:
+  - tig
 host-resources:
   - source: ~/.m2/repository
     mode: overlay
