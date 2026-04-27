@@ -1,6 +1,6 @@
 name: tpl-quarkus
 description: Quarkus development (JDK + Maven + Quarkus source)
-parent: tpl-java
+parent: tpl-mydev
 tools:
   - podman
   - gradle
