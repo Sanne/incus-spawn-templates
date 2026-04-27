@@ -1,10 +1,14 @@
 name: tpl-mydev
-description: Host-specific sharing layer
+description: My own dev environment
 parent: tpl-java
+tools:
+  - podman
+  - gradle
+  - idea-backend
 host-resources:
   - source: ~/.m2/repository
     mode: overlay
-  - source: ~/sources/incus-spawn-templates/.gitconfig
+  - source: ~/.gitconfig
     path: ~/.gitconfig
     mode: copy
   - source: ~/.local/share/containers/storage
@@ -12,3 +16,6 @@ host-resources:
   - source: ~/sources/incus-spawn-templates/podman-storage.conf
     path: /etc/containers/storage.conf
     mode: copy
+  - source: ~/.ssh/agent-authorized-keys
+    path: .ssh/authorized-keys
+    mode: readonly
