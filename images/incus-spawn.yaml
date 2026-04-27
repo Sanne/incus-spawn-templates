@@ -1,6 +1,8 @@
 name: tpl-incus-spawn
 description: Recursive Development of Incus Spawn (isx)
 parent: tpl-mydev
+tools:
+  - graalvm
 packages:
   - incus
   - copr-cli
