@@ -38,6 +38,7 @@ All templates inherit the `tpl-java` chain, which provides JDK 25, Maven, Claude
 |------|-------------|
 | `podman` | Podman with Docker socket compatibility, configured for Testcontainers |
 | `gradle` | Gradle 9.4.1 (installed to `/opt`, symlinked to PATH) |
+| `graalvm` | Oracle GraalVM for JDK 25 (installed to `/opt`, `native-image` on PATH) |
 
 ## Contributing
 
