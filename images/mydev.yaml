@@ -10,12 +10,12 @@ packages:
 host-resources:
   - source: ~/.m2/repository
     mode: overlay
-  - source: ~/.gitconfig
+  - source: ~/workspaces/infra/incus-spawn-templates/.gitconfig
     path: ~/.gitconfig
     mode: copy
   - source: ~/.local/share/containers/storage
     path: /mnt/podman-host-storage
-  - source: ~/sources/incus-spawn-templates/podman-storage.conf
+  - source: ~/workspaces/infra/incus-spawn-templates/podman-storage.conf
     path: /etc/containers/storage.conf
     mode: copy
   - source: ~/.ssh/agent-authorized-keys

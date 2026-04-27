@@ -1,0 +1,42 @@
+[init]
+	defaultBranch = main
+[user]
+	name = Yoann Rodière
+	email = yoann@hibernate.org
+[pull]
+	rebase = true
+[push]
+	default = upstream
+	autoSetupRemote = true
+[merge]
+	conflictstyle = diff3
+	mergeoptions = --ff-only
+	renameLimit = 9999
+[diff]
+	algorithm = histogram
+	renames = copies
+	renameLimit = 9999
+[receive]
+	denyNonFastForwards = 1
+	updateserverinfo = 1
+[http]
+	sslVerify = true
+[credential]
+#	helper = cache --timeout=7200
+[alias]
+	amend = commit --amend
+	force = push --force-with-lease
+	cached = diff --cached
+	st = status
+	cm = commit
+	fix = commit --fixup
+	co = checkout
+	sw = switch
+	rb = rebase -i --autosquash
+	ff = merge --ff-only
+	rcont = rebase --continue
+	chp = cherry-pick
+	ccont = cherry-pick --continue
+	abort = !git rebase --abort 2>/dev/null || git cherry-pick --abort 2>/dev/null
+[log]
+	follow = true
