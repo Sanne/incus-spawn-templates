@@ -7,6 +7,7 @@ tools:
   - idea-backend
 packages:
   - tig
+  - neovim
 host-resources:
   - source: ~/.m2/repository
     mode: overlay
