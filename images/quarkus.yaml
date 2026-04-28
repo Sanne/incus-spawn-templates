@@ -7,6 +7,6 @@ tools:
 repos:
   - url: https://github.com/quarkusio/quarkus.git
     path: ~/quarkus
-    prime: mvn -B dependencies:resolve
+    prime: mvn -B dependency:resolve
   - url: https://github.com/quarkusio/quarkus-quickstarts
     path: ~/quarkus-quickstarts
