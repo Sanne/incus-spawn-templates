@@ -17,7 +17,8 @@
 	renames = copies
 	renameLimit = 9999
 [receive]
-	denyNonFastForwards = 1
+	# Allow force-push
+	denyNonFastForwards = 0
 	updateserverinfo = 1
 [http]
 	sslVerify = true
