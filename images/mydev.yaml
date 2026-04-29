@@ -14,8 +14,8 @@ host-resources:
   - source: ~/workspaces/infra/incus-spawn-templates/.gitconfig
     path: ~/.gitconfig
     mode: copy
-  - source: ~/workspaces/infra/incus-spawn-templates/.claude
-    path: ~/.claude
+  - source: ~/workspaces/infra/incus-spawn-templates/.claude/settings.json
+    path: ~/.claude/settings.json
     mode: overlay
   - source: ~/.local/share/containers/storage
     path: /mnt/podman-host-storage
