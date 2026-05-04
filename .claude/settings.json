@@ -3,19 +3,22 @@
     "commit": "Assisted-By: Claude Code <noreply@anthropic.com>",
     "pr": ""
   },
-                  "permissions": {
-                    "defaultMode": "bypassPermissions",
-                    "allow": [
-                      "Bash(*)",
-                      "Read(**)",
-                      "Edit(**)",
-                      "Write(**)",
-                      "Glob(**)",
-                      "Grep(**)",
-                      "WebFetch",
-                      "WebSearch",
-                      "Agent(*)"
-                    ]
-                  },
-                  "skipDangerousModePermissionPrompt": true
+  "env": {
+    "DISABLE_AUTOUPDATER": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "Read(**)",
+      "Edit(**)",
+      "Write(**)",
+      "Glob(**)",
+      "Grep(**)",
+      "WebFetch",
+      "WebSearch",
+      "Agent(*)"
+    ],
+    "defaultMode": "bypassPermissions"
+  },
+  "skipDangerousModePermissionPrompt": true
 }
