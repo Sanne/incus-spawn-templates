@@ -1,0 +1,12 @@
+name: tpl-websites
+description: Hibernate Website Dev
+parent: tpl-mydev
+tools:
+  - podman
+repos:
+  - url: https://github.com/hibernate/hibernate.org.git
+    path: ~/hibernate.org
+  - url: https://github.com/hibernate/in.relation.to.git
+    path: ~/in.relation.to
+  - url: https://github.com/beanvalidation/beanvalidation.org.git
+    path: ~/beanvalidation.org
