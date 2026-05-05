@@ -1,5 +1,5 @@
 name: tpl-leyden
-description: OpenJDK Leyden development (startup/warmup optimizations)
+description: OpenJDK Leyden development
 parent: tpl-openjdk
 repos:
   - url: https://github.com/openjdk/leyden.git

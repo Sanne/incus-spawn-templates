@@ -7,6 +7,5 @@ tools:
 repos:
   - url: https://github.com/quarkusio/quarkus.git
     path: ~/quarkus
-    prime: mvn -B install -Dquickly
   - url: https://github.com/quarkusio/quarkus-quickstarts
     path: ~/quarkus-quickstarts

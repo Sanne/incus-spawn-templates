@@ -8,6 +8,6 @@ packages:
 repos:
   - url: https://github.com/Sanne/incus-spawn/
     path: ~/incus-spawn
-    prime: mvn -B install
+    prime: mvn -B dependency:resolve
   - url: https://github.com/Sanne/incus-spawn-templates/
     path: ~/incus-spawn-templates

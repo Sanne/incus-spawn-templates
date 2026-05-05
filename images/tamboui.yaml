@@ -3,6 +3,7 @@ description: TamboUI (JDK + source)
 parent: tpl-mydev
 tools:
   - gradle
+  - idea-backend
 repos:
   - url: https://github.com/tamboui/tamboui
     path: ~/tamboui
