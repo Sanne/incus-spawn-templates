@@ -1,0 +1,10 @@
+name: tpl-mydev-base
+description: Base for tpl-mydev, with the slow, hopefully rarely-updated part of setup.
+parent: tpl-java
+tools:
+  - podman
+  - idea-backend
+  - gradle
+packages:
+  - tig
+  - neovim

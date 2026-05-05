@@ -1,10 +1,6 @@
 name: tpl-mydev
 description: My own dev environment
-parent: tpl-java
-tools:
-  - podman
-  - gradle
-  - idea-backend
+parent: tpl-mydev-base
 packages:
   - tig
   - neovim
