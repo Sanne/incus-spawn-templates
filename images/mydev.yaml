@@ -12,7 +12,8 @@ host-resources:
     mode: copy
   - source: ~/workspaces/infra/incus-spawn-templates/.claude/settings.json
     path: ~/.claude/settings.json
-    mode: overlay
+    # Overlay won't work for some reason.
+    mode: copy
   - source: ~/.local/share/containers/storage
     path: /mnt/podman-host-storage
   - source: ~/workspaces/infra/incus-spawn-templates/podman-storage.conf

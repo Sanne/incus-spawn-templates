@@ -3,9 +3,6 @@
     "commit": "Assisted-By: Claude Code <noreply@anthropic.com>",
     "pr": ""
   },
-  "env": {
-    "DISABLE_AUTOUPDATER": "1"
-  },
   "permissions": {
     "allow": [
       "Bash(*)",
@@ -20,5 +17,8 @@
     ],
     "defaultMode": "bypassPermissions"
   },
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "env": {
+    "DISABLE_AUTOUPDATER": "1"
+  }
 }
