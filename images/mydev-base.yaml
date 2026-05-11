@@ -8,3 +8,4 @@ tools:
 packages:
   - tig
   - neovim
+  - jq
