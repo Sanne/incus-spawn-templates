@@ -1,0 +1,12 @@
+name: tpl-tools
+description: Development Tools
+parent: tpl-mydev
+repos:
+  - url: https://github.com/yrodiere/shell-tools/
+    path: ~/shell-tools
+  - url: https://github.com/yrodiere/git-tools/
+    path: ~/git-tools
+  - url: https://github.com/yrodiere/incus-spawn-templates/
+    path: ~/incus-spawn-templates
+  - url: https://github.com/yrodiere/activity-report/
+    path: ~/activity-report
