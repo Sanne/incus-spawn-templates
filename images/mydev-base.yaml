@@ -11,3 +11,4 @@ packages:
   - jq
   - tig
   - neovim
+  - bc
