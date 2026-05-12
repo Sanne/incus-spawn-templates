@@ -1,11 +1,6 @@
 name: tpl-mydev
 description: My own dev environment
 parent: tpl-mydev-base
-tools:
-  - idea-backend-heavy-duty
-packages:
-  - tig
-  - neovim
 host-resources:
   - source: ~/.m2/repository
     mode: overlay

@@ -3,9 +3,11 @@ description: Base for tpl-mydev, with the slow, hopefully rarely-updated part of
 parent: tpl-java
 tools:
   - podman
-  - idea-backend
+  - idea-backend-heavy-duty
   - gradle
 packages:
   - tig
   - neovim
   - jq
+  - tig
+  - neovim
