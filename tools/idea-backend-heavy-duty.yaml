@@ -1,0 +1,9 @@
+name: idea-backend-heavy-duty
+description: IDEA backend for heavy duty (huge projects)
+requires:
+  - idea-backend
+run_as_user:
+  - |
+    D=~/.config/JetBrains/$(grep -o '"dataDirectoryName": "[^"]*"' /opt/idea/product-info.json | head -1 | cut -d'"' -f4)
+    mkdir -p "$D" 
+    printf -- '\n-Xmx8000m\n' >> $D/idea64.vmoptions
