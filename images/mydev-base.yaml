@@ -3,7 +3,8 @@ description: Base for tpl-mydev, with the slow, hopefully rarely-updated part of
 parent: tpl-java
 tools:
   - podman
-  - idea-backend-heavy-duty
+  - idea-backend:
+      memory: 8g
   - gradle
 packages:
   - tig
