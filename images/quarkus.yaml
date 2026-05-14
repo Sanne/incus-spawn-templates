@@ -4,6 +4,8 @@ parent: tpl-mydev
 tools:
   - podman
   - gradle
+  - idea-backend:
+      memory: "8g"
 repos:
   - url: https://github.com/quarkusio/quarkus.git
     path: ~/quarkus

@@ -5,6 +5,8 @@ packages:
   - incus
   - copr-cli
   - lxc-devel
+tools:
+ - pi
 repos:
   - url: https://github.com/Sanne/incus-spawn/
     path: ~/incus-spawn
