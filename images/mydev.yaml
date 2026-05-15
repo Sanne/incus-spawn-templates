@@ -1,6 +1,8 @@
 name: tpl-mydev
 description: Host-specific sharing layer
 parent: tpl-java
+tools:
+  - starship
 host-resources:
   - source: ~/.m2/repository
     mode: overlay
