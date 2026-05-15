@@ -4,7 +4,7 @@ parent: tpl-mydev
 tools:
   - podman
   - gradle
-  - idea-backend
+  - idea-backend:
       memory: "8g"
 repos:
   - url: https://github.com/hibernate/hibernate-orm.git
