@@ -1,0 +1,11 @@
+name: zsh
+description: Zsh as default shell
+
+packages:
+  - zsh
+
+run:
+  - |
+    chsh -s /usr/bin/zsh agentuser
+
+verify: getent passwd agentuser | grep -q '/usr/bin/zsh'

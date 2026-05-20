@@ -1,7 +1,12 @@
 name: tpl-mydev
 description: My own dev environment
 parent: tpl-mydev-base
+tools:
+  - zsh
 host-resources:
+  - source: ~/workspaces/infra/incus-spawn-templates/.zshrc
+    path: ~/.zshrc
+    mode: copy
   - source: ~/.m2/repository
     mode: overlay
   - source: ~/workspaces/infra/incus-spawn-templates/.gitconfig
