@@ -11,3 +11,11 @@ zstyle :compinstall filename '/home/agentuser/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+
+# incus-spawn adds env vars to bashrc...
+source <(grep -E '^export ' ~/.bashrc)
