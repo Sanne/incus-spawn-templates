@@ -5,6 +5,7 @@ packages:
   - java-26-openjdk-devel
   - autoconf
   - alsa-lib-devel
+  - capstone-devel
   - cups-devel
   - fontconfig-devel
   - freetype-devel
