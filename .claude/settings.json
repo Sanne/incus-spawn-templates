@@ -20,5 +20,6 @@
   "skipDangerousModePermissionPrompt": true,
   "env": {
     "DISABLE_AUTOUPDATER": "1"
-  }
+  },
+  "model": "claude-opus-4-6"
 }
