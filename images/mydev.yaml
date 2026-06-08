@@ -2,8 +2,6 @@ name: tpl-mydev
 description: Host-specific sharing layer
 parent: tpl-java
 host-resources:
-  - source: ~/.m2/repository
-    mode: overlay
   - source: ~/sources/incus-spawn-templates/.gitconfig
     path: ~/.gitconfig
     mode: copy
