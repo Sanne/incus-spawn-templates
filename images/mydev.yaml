@@ -2,11 +2,9 @@ name: tpl-mydev
 description: Host-specific sharing layer
 parent: tpl-java
 host-resources:
-  - source: ~/sources/incus-spawn-templates/.gitconfig
-    path: ~/.gitconfig
-    mode: copy
   - source: ~/.local/share/containers/storage
     path: /mnt/podman-host-storage
   - source: ~/sources/incus-spawn-templates/podman-storage.conf
     path: /etc/containers/storage.conf
     mode: copy
+
