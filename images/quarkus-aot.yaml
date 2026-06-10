@@ -6,7 +6,7 @@ repos:
     path: ~/quarkus-aot
   - url: https://github.com/hibernate/hibernate-orm.git
     path: ~/hibernate-orm
-    prime: gradle dependencies
+    prime: ./gradlew dependencies
   - url: https://github.com/hibernate/hibernate-models.git
     path: ~/hibernate-models
-    prime: gradle dependencies
+    prime: ./gradlew dependencies

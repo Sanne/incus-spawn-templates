@@ -4,4 +4,4 @@ parent: tpl-hibernate-orm
 repos:
   - url: https://github.com/hibernate/hibernate-reactive.git
     path: ~/hibernate-reactive
-    prime: gradle dependencies
+    prime: ./gradlew dependencies
