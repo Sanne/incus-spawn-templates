@@ -22,22 +22,28 @@ isx branch tpl-quarkus my-feature
 
 ## Templates
 
-| Template | Parent | Description                                                          |
-|----------|--------|----------------------------------------------------------------------|
-| `tpl-quarkus` | `tpl-java` | Quarkus + quickstarts source, Podman, Gradle                         |
-| `tpl-hibernate-orm` | `tpl-java` | Hibernate ORM source, Podman, Gradle                                 |
-| `tpl-hibernate-reactive` | `tpl-hibernate-orm` | Hibernate Reactive source (includes ORM)                             |
-| `tpl-tamboui` | `tpl-java` | Tamboui TUI framework source, Gradle, selected skills                |
-| `tpl-incus-spawn` | `tpl-java` | incus-spawn itself — recursive development with Incus and COPR tools |
+All templates inherit the `tpl-java` chain (JDK 25, Maven, Claude Code, GitHub CLI, tmux) through two intermediate base layers:
 
-All templates inherit the `tpl-java` chain, which provides JDK 25, Maven, Claude Code, GitHub CLI, and tmux.
+| Template | Parent | Description |
+|----------|--------|-------------|
+| `tpl-mydev-base` | `tpl-java` | Base dev environment: Podman, IntelliJ IDEA backend, Gradle |
+| `tpl-mydev` | `tpl-mydev-base` | Personal dev environment with Zsh, host resources, settings |
+| `tpl-quarkus` | `tpl-mydev` | Quarkus + quickstarts source |
+| `tpl-quarkus-aot` | `tpl-quarkus` | Quarkus AOT experiments (includes Hibernate ORM and Models) |
+| `tpl-quarkus-infra` | `tpl-mydev` | Quarkus infrastructure projects (lottery, bot, search, GitHub app/action/api) |
+| `tpl-hibernate-orm` | `tpl-mydev` | Hibernate ORM source, Podman |
+| `tpl-hibernate-reactive` | `tpl-hibernate-orm` | Hibernate Reactive source (includes ORM) |
+| `tpl-wildfly` | `tpl-mydev` | WildFly and WildFly Core source |
+| `tpl-tamboui` | `tpl-mydev` | TamboUI TUI framework source, selected skills |
+| `tpl-incus-spawn` | `tpl-mydev` | incus-spawn itself — recursive development with Incus and COPR tools |
+| `tpl-tools` | `tpl-mydev` | Development tools (shell-tools, git-tools, activity-report) |
+| `tpl-websites` | `tpl-mydev` | Hibernate websites (hibernate.org, in.relation.to, beanvalidation.org) |
 
 ## Tools
 
 | Tool | Description |
 |------|-------------|
-| `podman` | Podman with Docker socket compatibility, configured for Testcontainers |
-| `gradle` | Gradle 9.4.1 (installed to `/opt`, symlinked to PATH) |
+| `zsh` | Zsh as default shell |
 
 ## Contributing
 
