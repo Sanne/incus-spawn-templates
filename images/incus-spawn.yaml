@@ -5,6 +5,7 @@ packages:
   - incus
   - copr-cli
   - lxc-devel
+  - openssl
 repos:
   - url: https://github.com/Sanne/incus-spawn/
     path: ~/incus-spawn
