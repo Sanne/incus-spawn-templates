@@ -1,0 +1,99 @@
+name: tpl-incus-spawn-vm
+description: Recursive Development of Incus Spawn (isx) — standalone VM
+vm: true
+
+# Flattened from the full chain:
+#   tpl-minimal → tpl-dev → tpl-java → tpl-mydev-base → tpl-mydev → tpl-incus-spawn
+
+packages:
+  # tpl-minimal
+  - glibc-langpack-en
+  # tpl-mydev-base
+  - tig
+  - neovim
+  - jq
+  - bc
+  # tpl-incus-spawn
+  - incus
+  - copr-cli
+  - lxc-devel
+
+remove_packages:
+  # tpl-minimal
+  - glibc-all-langpacks
+  - geolite2-city
+  - geolite2-country
+
+mask_services:
+  # tpl-minimal
+  - systemd-udevd.service
+  - systemd-udevd-control.socket
+  - systemd-udevd-kernel.socket
+  - systemd-udev-trigger.service
+  - systemd-udev-settle.service
+  - systemd-udev-load-credentials.service
+  - systemd-homed.service
+  - systemd-pcrlock-file-system.service
+  - systemd-pcrlock-firmware-code.service
+  - systemd-pcrlock-firmware-config.service
+  - systemd-pcrlock-machine-id.service
+  - systemd-pcrlock-make-policy.service
+  - systemd-pcrlock-secureboot-authority.service
+  - systemd-pcrlock-secureboot-policy.service
+  - systemd-tpm2-clear.service
+  - systemd-time-wait-sync.service
+  - systemd-timesyncd.service
+  - systemd-boot-update.service
+  - systemd-boot-check-no-failures.service
+  - systemd-boot-clear-sysfail.service
+  - systemd-sysupdate.timer
+  - systemd-sysupdate-reboot.timer
+  - unbound-anchor.timer
+  - fstrim.timer
+  - selinux-autorelabel-mark.service
+
+tools:
+  # tpl-dev
+  - tmux
+  - starship
+  - podman
+  - gh
+  - claude
+  # tpl-java
+  - maven-3
+  # tpl-mydev-base
+  - idea-backend:
+      memory: 8g
+  - gradle
+  # tpl-mydev
+  - zsh
+
+host-resources:
+  # tpl-mydev
+  - source: ~/workspaces/infra/incus-spawn-templates/.zshrc
+    path: ~/.zshrc
+    mode: copy
+  - source: ~/.m2/repository
+    mode: overlay
+  - source: ~/workspaces/infra/incus-spawn-templates/.gitconfig
+    path: ~/.gitconfig
+    mode: copy
+  - source: ~/workspaces/infra/incus-spawn-templates/.claude/settings.json
+    path: ~/.claude/settings.json
+    mode: copy
+  - source: ~/.local/share/containers/storage
+    path: /mnt/podman-host-storage
+  - source: ~/workspaces/infra/incus-spawn-templates/podman-storage.conf
+    path: /etc/containers/storage.conf
+    mode: copy
+  - source: ~/.ssh/agent-authorized-keys
+    path: .ssh/authorized-keys
+    mode: readonly
+
+repos:
+  # tpl-incus-spawn
+  - url: https://github.com/Sanne/incus-spawn/
+    path: ~/incus-spawn
+    prime: mvn -B install
+  - url: https://github.com/yrodiere/incus-spawn-templates/
+    path: ~/incus-spawn-templates
