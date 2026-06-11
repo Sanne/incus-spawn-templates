@@ -17,6 +17,7 @@ packages:
   - incus
   - copr-cli
   - lxc-devel
+  - openssl
 
 remove_packages:
   # tpl-minimal
