@@ -1,0 +1,11 @@
+name: tpl-casehub
+description: Casehub
+parent: tpl-mydev
+tools:
+  - podman
+skills:
+  - Hortora/soredium
+repos:
+  - url: https://github.com/casehubio/parent.git
+    path: ~/casehub-parent
+
