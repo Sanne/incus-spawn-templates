@@ -8,7 +8,7 @@ packages:
   - copr-cli
   - lxc-devel
 tools:
- - pi
+ - vscode-remote
 repos:
   - url: https://github.com/Sanne/incus-spawn/
     path: ~/incus-spawn
