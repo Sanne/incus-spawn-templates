@@ -4,6 +4,7 @@ parent: tpl-mydev-base
 default-action: claude
 tools:
   - zsh
+  - mvnd
 skills:
   - yrodiere/claude-skills
 host-resources:
