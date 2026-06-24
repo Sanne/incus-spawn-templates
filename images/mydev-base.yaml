@@ -13,3 +13,5 @@ packages:
   - tig
   - neovim
   - bc
+  - zsh
+  - tree
