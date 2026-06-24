@@ -1,6 +1,7 @@
 name: tpl-mydev
 description: My own dev environment
 parent: tpl-mydev-base
+default-action: claude
 tools:
   - zsh
 skills:
