@@ -63,11 +63,13 @@ tools:
   # tpl-java
   - maven-3
   # tpl-mydev-base
+  - sdkman
   - idea-backend:
       memory: 8g
   - gradle
   # tpl-mydev
   - zsh
+  - mvnd
 
 host-resources:
   # tpl-mydev
@@ -95,6 +97,6 @@ repos:
   # tpl-incus-spawn
   - url: https://github.com/Sanne/incus-spawn/
     path: ~/incus-spawn
-    prime: mvn -B install
+    prime: mvnd -B install
   - url: https://github.com/yrodiere/incus-spawn-templates/
     path: ~/incus-spawn-templates

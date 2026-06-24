@@ -1,0 +1,19 @@
+name: sdkman
+description: SDKMAN! — manager for JVM ecosystem tools
+
+packages:
+  - zip
+  - unzip
+
+run_as_user:
+  - |
+    curl -fsSL https://get.sdkman.io | bash
+
+files:
+  - path: /home/agentuser/.zprofile
+    content: |
+      export SDKMAN_DIR="$HOME/.sdkman"
+      [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+    owner: agentuser
+
+verify: test -d /home/agentuser/.sdkman

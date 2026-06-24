@@ -3,6 +3,7 @@ description: My own dev environment
 parent: tpl-mydev-base
 tools:
   - zsh
+  - mvnd
 skills:
   - yrodiere/claude-skills
 host-resources:

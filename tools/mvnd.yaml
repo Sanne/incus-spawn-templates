@@ -1,0 +1,12 @@
+name: mvnd
+description: Maven Daemon (mvnd) for faster Maven builds
+
+requires:
+  - sdkman
+
+run_as_user:
+  - |
+    source ~/.sdkman/bin/sdkman-init.sh
+    sdk install mvnd
+
+verify: test -x /home/agentuser/.sdkman/candidates/mvnd/current/bin/mvnd
