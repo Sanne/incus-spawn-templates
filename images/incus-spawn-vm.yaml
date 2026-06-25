@@ -97,6 +97,6 @@ repos:
   # tpl-incus-spawn
   - url: https://github.com/Sanne/incus-spawn/
     path: ~/incus-spawn
-    prime: mvnd -B install
+    prime: mvnd install
   - url: https://github.com/yrodiere/incus-spawn-templates/
     path: ~/incus-spawn-templates
