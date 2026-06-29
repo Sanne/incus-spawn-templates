@@ -6,6 +6,8 @@ tools:
   - gradle
   - idea-backend:
       memory: "8g"
+packages:
+ - unzip
 repos:
   - url: https://github.com/quarkusio/quarkus.git
     path: ~/quarkus
