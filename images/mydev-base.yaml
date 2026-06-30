@@ -5,7 +5,6 @@ tools:
   - podman
   - idea-backend:
       memory: 8g
-  - gradle
   - sdkman
 packages:
   - tig
