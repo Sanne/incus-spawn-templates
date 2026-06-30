@@ -11,8 +11,7 @@ packages:
   - tig
   - neovim
   - jq
-  - tig
-  - neovim
   - bc
   - zsh
   - tree
+  - unzip
