@@ -12,3 +12,5 @@ repos:
     prime: mvnd install
   - url: https://github.com/yrodiere/incus-spawn-templates/
     path: ~/incus-spawn-templates
+  - url: https://github.com/yrodiere/incus-spawn-images/
+    path: ~/incus-spawn-images
