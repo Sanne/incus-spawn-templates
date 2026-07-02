@@ -8,21 +8,21 @@ tools:
 skills:
   - yrodiere/claude-skills
 host-resources:
-  - source: ~/workspaces/infra/incus-spawn-templates/.zshrc
+  - source: ~/workspaces/incus-spawn/incus-spawn-templates/.zshrc
     path: ~/.zshrc
     mode: copy
   - source: ~/.m2/repository
     mode: overlay
-  - source: ~/workspaces/infra/incus-spawn-templates/.gitconfig
+  - source: ~/workspaces/incus-spawn/incus-spawn-templates/.gitconfig
     path: ~/.gitconfig
     mode: copy
-  - source: ~/workspaces/infra/incus-spawn-templates/.claude/settings.json
+  - source: ~/workspaces/incus-spawn/incus-spawn-templates/.claude/settings.json
     path: ~/.claude/settings.json
     # Overlay won't work for some reason.
     mode: copy
   - source: ~/.local/share/containers/storage
     path: /mnt/podman-host-storage
-  - source: ~/workspaces/infra/incus-spawn-templates/podman-storage.conf
+  - source: ~/workspaces/incus-spawn/incus-spawn-templates/podman-storage.conf
     path: /etc/containers/storage.conf
     mode: copy
   - source: ~/.ssh/agent-authorized-keys
