@@ -16,4 +16,7 @@ files:
       [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
     owner: agentuser
 
+env:
+  - export JAVA_TOOL_OPTIONS="-Djavax.net.ssl.trustStore=/etc/pki/java/cacerts"
+
 verify: test -d /home/agentuser/.sdkman
