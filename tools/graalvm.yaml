@@ -5,6 +5,13 @@ downloads:
   - url: https://gds.oracle.com/download/graal/25i1/latest/graalvm-jdk-25i1-25_linux-x64_bin.tar.gz
     sha256: efcb8984be5f72ecf8615641bec720c825a6889957f0b98d95123f563ff77c86
     extract: /opt
+    arch: x86_64
+    links:
+      /opt/graalvm-25.1.3+9.1/bin/native-image: /usr/local/bin/native-image
+  - url: https://gds.oracle.com/download/graal/25i1/latest/graalvm-jdk-25i1-25_linux-aarch64_bin.tar.gz
+    sha256: cb9889df78cd7e186ab9dfb71e379ae35d89ebcd939e02b6931841c7158d620a
+    extract: /opt
+    arch: aarch64
     links:
       /opt/graalvm-25.1.3+9.1/bin/native-image: /usr/local/bin/native-image
 
