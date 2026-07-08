@@ -1,6 +1,11 @@
 name: graalvm
 description: Oracle GraalVM 25.1 for JDK 25
 
+packages:
+  - gcc
+  - glibc-devel
+  - zlib-devel
+
 downloads:
   - url: https://gds.oracle.com/download/graal/25i1/latest/graalvm-jdk-25i1-25_linux-x64_bin.tar.gz
     sha256: efcb8984be5f72ecf8615641bec720c825a6889957f0b98d95123f563ff77c86
