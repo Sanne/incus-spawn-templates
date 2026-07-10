@@ -9,7 +9,7 @@ packages:
 repos:
   - url: https://github.com/Sanne/incus-spawn/
     path: ~/incus-spawn
-    prime: mvnd install
+    prime: mvnd install -DskipTests
   - url: https://github.com/yrodiere/incus-spawn-templates/
     path: ~/incus-spawn-templates
   - url: https://github.com/yrodiere/incus-spawn-images/
