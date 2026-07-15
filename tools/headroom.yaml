@@ -1,5 +1,5 @@
 name: headroom
-description: Headroom context optimization (MCP server for Claude Code)
+description: Headroom context optimization for Claude Code
 requires:
   - claude
 
@@ -7,7 +7,18 @@ packages:
   - python3-pip
 
 run_as_user:
-  - pip install --user --quiet 'headroom-ai[mcp]'
-  - claude mcp add headroom -s user -- headroom mcp serve
+  - pip install --user --quiet 'headroom-ai[proxy,mcp]'
+
+env:
+  # MITM proxy leaf certs lack AKI/SKI extensions;
+  # Python 3.14 / OpenSSL 3.5 rejects them in strict mode.
+  - name: HEADROOM_TLS_STRICT
+    value: "0"
+
+actions:
+  - label: "Claude Code (Headroom)"
+    type: shell
+    command: "if find ~/.claude/projects -maxdepth 2 -name '*.jsonl' 2>/dev/null | grep -q .; then headroom wrap claude --continue; else headroom wrap claude; fi"
+    auto_return: true
 
 verify: headroom --version

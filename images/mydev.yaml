@@ -1,7 +1,7 @@
 name: tpl-mydev
 description: My own dev environment
 parent: tpl-mydev-base
-default-action: claude
+default-action: headroom
 tools:
   - zsh
   - mvnd
