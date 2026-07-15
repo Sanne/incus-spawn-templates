@@ -5,7 +5,6 @@ default-action: claude
 tools:
   - zsh
   - mvnd
-  - headroom
 skills:
   - yrodiere/claude-skills
 host-resources:
