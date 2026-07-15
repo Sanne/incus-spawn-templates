@@ -1,0 +1,13 @@
+name: headroom
+description: Headroom context optimization (MCP server for Claude Code)
+requires:
+  - claude
+
+packages:
+  - python3-pip
+
+run_as_user:
+  - pip install --user --quiet headroom-ai
+  - claude mcp add headroom -s user -- headroom mcp serve
+
+verify: headroom --version
