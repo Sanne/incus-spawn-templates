@@ -6,19 +6,37 @@ requires:
 packages:
   - python3-pip
 
+run:
+  - loginctl enable-linger agentuser
+
 run_as_user:
   - pip install --user --quiet 'headroom-ai[proxy,mcp]'
+  - claude mcp add headroom -s user -- headroom mcp serve
+  - |
+    mkdir -p ~/.config/systemd/user
+    cat > ~/.config/systemd/user/headroom-proxy.service << 'EOF'
+    [Unit]
+    Description=Headroom optimization proxy
+    After=network.target
+
+    [Service]
+    ExecStart=%h/.local/bin/headroom proxy
+    Restart=on-failure
+    RestartSec=3
+    Environment=HEADROOM_TLS_STRICT=0
+
+    [Install]
+    WantedBy=default.target
+    EOF
+  - systemctl --user daemon-reload
+  - systemctl --user enable headroom-proxy
 
 env:
   # MITM proxy leaf certs lack AKI/SKI extensions;
   # Python 3.14 / OpenSSL 3.5 rejects them in strict mode.
   - name: HEADROOM_TLS_STRICT
     value: "0"
-
-actions:
-  - label: "Claude Code (Headroom)"
-    type: shell
-    command: "if find ~/.claude/projects -maxdepth 2 -name '*.jsonl' 2>/dev/null | grep -q .; then headroom wrap claude --continue; else headroom wrap claude; fi"
-    auto_return: true
+  - name: ANTHROPIC_BASE_URL
+    value: "http://localhost:8787"
 
 verify: headroom --version
