@@ -8,12 +8,19 @@ packages:
 
 run:
   - loginctl enable-linger agentuser
+  # systemd user manager needs XDG_RUNTIME_DIR in unprivileged containers
+  - |
+    mkdir -p /etc/systemd/system/user@.service.d
+    cat > /etc/systemd/system/user@.service.d/xdg-runtime.conf << 'EOF'
+    [Service]
+    Environment=XDG_RUNTIME_DIR=/run/user/%i
+    EOF
 
 run_as_user:
   - pip install --user --quiet 'headroom-ai[proxy,mcp]'
   - claude mcp add headroom -s user -- headroom mcp serve
   - |
-    mkdir -p ~/.config/systemd/user
+    mkdir -p ~/.config/systemd/user/default.target.wants
     cat > ~/.config/systemd/user/headroom-proxy.service << 'EOF'
     [Unit]
     Description=Headroom optimization proxy
@@ -28,8 +35,7 @@ run_as_user:
     [Install]
     WantedBy=default.target
     EOF
-  - systemctl --user daemon-reload
-  - systemctl --user enable headroom-proxy
+    ln -sf ../headroom-proxy.service ~/.config/systemd/user/default.target.wants/headroom-proxy.service
 
 env:
   # MITM proxy leaf certs lack AKI/SKI extensions;
@@ -39,4 +45,4 @@ env:
   - name: ANTHROPIC_BASE_URL
     value: "http://localhost:8787"
 
-verify: headroom --version
+verify: /home/agentuser/.local/bin/headroom --version
