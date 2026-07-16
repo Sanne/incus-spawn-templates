@@ -46,3 +46,5 @@ env:
     value: "http://localhost:8787"
 
 verify: /home/agentuser/.local/bin/headroom --version
+
+ready: curl -sf http://localhost:8787/livez
