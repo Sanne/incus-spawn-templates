@@ -1,0 +1,35 @@
+name: tpl-graalvm-dev
+description: GraalVM development (mx + labsjdk + graal source)
+# Deliberately not tpl-java: graal must be built against the JVMCI-enabled
+# labsjdk, and JAVA_HOME can only be set once across the whole chain.
+parent: tpl-dev
+
+tools:
+  - maven-3
+  - mx
+  - labsjdk:
+      jdk_id: "labsjdk-ce-latest"
+
+packages:
+  # Native image / substratevm build dependencies
+  - gcc
+  - gcc-c++
+  - make
+  - glibc-devel
+  - zlib-devel
+  - glibc-static
+  - zlib-static
+  - libstdc++-static
+  - libffi-devel
+  # Assorted build helpers mx shells out to
+  - patch
+  - unzip
+  - zip
+  - file
+  - diffutils
+
+repos:
+  - url: https://github.com/oracle/graal.git
+    path: ~/graal
+
+workdir: ~/graal

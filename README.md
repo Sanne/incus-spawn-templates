@@ -29,8 +29,30 @@ isx branch tpl-quarkus my-feature
 | `tpl-hibernate-reactive` | `tpl-hibernate-orm` | Hibernate Reactive source (includes ORM)                             |
 | `tpl-tamboui` | `tpl-java` | Tamboui TUI framework source, Gradle, selected skills                |
 | `tpl-incus-spawn` | `tpl-java` | incus-spawn itself — recursive development with Incus and COPR tools |
+| `tpl-graalvm-dev` | `tpl-dev` | GraalVM development — `mx`, labsjdk, the `oracle/graal` source |
 
-All templates inherit the `tpl-java` chain, which provides JDK 25, Maven, Claude Code, GitHub CLI, and tmux.
+Most templates inherit the `tpl-java` chain, which provides JDK 25, Maven, Claude Code, GitHub CLI, and tmux.
+
+### Working on GraalVM
+
+`tpl-graalvm-dev` is ready to build on first shell — `mx`, a JVMCI-enabled labsjdk in
+`/opt/jdks` (already `JAVA_HOME`), and the `oracle/graal` source, with the shell opening
+in `~/graal`:
+
+```shell
+isx branch tpl-graalvm-dev graal-work
+cd compiler && mx build
+```
+
+It hangs off `tpl-dev` rather than `tpl-java` on purpose: graal has to be built against the
+labsjdk, and `JAVA_HOME` can only be set once across a template chain.
+
+To build against a different JDK, override the `labsjdk` tool's `jdk_id` parameter (any id
+from `mx fetch-jdk --list`) in your own template.
+
+`mx` validates TLS in Python rather than through the JVM truststore, so the `mx fetch-jdk`
+step in this build is also a good check that the isx MITM proxy's certificates satisfy
+OpenSSL 3.5+ strict verification.
 
 ## Tools
 
@@ -39,6 +61,9 @@ All templates inherit the `tpl-java` chain, which provides JDK 25, Maven, Claude
 | `podman` | Podman with Docker socket compatibility, configured for Testcontainers |
 | `gradle` | Gradle 9.4.1 (installed to `/opt`, symlinked to PATH) |
 | `graalvm` | Oracle GraalVM for JDK 25 (installed to `/opt`, `native-image` on PATH) |
+| `mx` | GraalVM's `mx` build tool (cloned to `/opt/mx`, `mx` on PATH) |
+| `labsjdk` | JVMCI-enabled labsjdk fetched by `mx` into `/opt/jdks` and set as `JAVA_HOME` (param: `jdk_id`) |
+| `jtreg` | JTReg test harness (installed to `/opt`, `jtreg` on PATH) |
 
 ## Contributing
 

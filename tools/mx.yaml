@@ -1,0 +1,28 @@
+name: mx
+description: mx build tool for GraalVM / Truffle development
+
+# mx is a Python tool; it validates TLS itself (urllib), so it exercises the
+# MITM proxy's certificate chain rather than the JVM truststore.
+packages:
+  - git
+  - python3
+  - unzip
+  - which
+
+run:
+  # Full clone (not shallow): mx inspects its own git history to check whether
+  # it satisfies the minimum version required by a suite, and `mx update` needs
+  # the tags.
+  - git clone https://github.com/graalvm/mx.git /opt/mx
+  # Owned by agentuser so `git` inside /opt/mx does not trip the
+  # "detected dubious ownership" check when mx self-updates.
+  - chown -R agentuser:agentuser /opt/mx
+  - git config --system --add safe.directory /opt/mx
+  - ln -sf /opt/mx/mx /usr/local/bin/mx
+
+env:
+  # MX_HOME is set by mx itself; only the interpreter needs pinning.
+  - name: MX_PYTHON
+    value: /usr/bin/python3
+
+verify: mx version

@@ -1,0 +1,30 @@
+name: labsjdk
+description: JVMCI-enabled labsjdk (fetched with mx) — the JDK GraalVM builds against
+
+requires:
+  - mx
+
+parameters:
+  jdk_id:
+    type: string
+    default: "labsjdk-ce-latest"
+    description: "mx JDK id to fetch (see `mx fetch-jdk --list`)"
+    pattern: "^[A-Za-z0-9._-]+$"
+
+run:
+  # mx refuses to install into a directory it cannot write, and the fetch runs
+  # as agentuser so the mx download cache stays in the user's home.
+  - install -d -o agentuser -g agentuser /opt/jdks
+
+run_as_user:
+  # -y answers the "Install ... to ..." prompt; the build has no stdin.
+  # --alias gives a version-independent path for JAVA_HOME below.
+  - mx -y fetch-jdk --jdk-id ${param_jdk_id} --to /opt/jdks --alias ${param_jdk_id}
+  # The archive is only needed for the extraction above — don't bake it into the image.
+  - rm -rf ~/.mx/cache
+
+env:
+  - name: JAVA_HOME
+    value: /opt/jdks/${param_jdk_id}
+
+verify: /opt/jdks/${param_jdk_id}/bin/java -version
