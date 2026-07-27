@@ -1,0 +1,15 @@
+name: tpl-infinispan
+description: Infinispan
+parent: tpl-mydev
+tools:
+  - podman
+  - graalvm
+  - claude: {model: claude-opus-4-6}
+default-action: claude
+repos:
+  - url: https://github.com/infinispan/infinispan.git
+    prime: mvn -B dependency:go-offline
+  - url: https://github.com/infinispan/protostream.git
+  - url: https://github.com/infinispan/infinispan-simple-tutorials.git
+  - url: https://github.com/infinispan/infinispan.github.io.git
+
