@@ -5,6 +5,8 @@ tools:
   - podman
   - graalvm
   - bob
+  - claude: {model: claude-sonnet-5}
+default-action: claude
 packages:
  - unzip
 repos:
