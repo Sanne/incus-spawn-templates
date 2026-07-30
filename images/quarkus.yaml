@@ -5,8 +5,6 @@ tools:
   - podman
   - graalvm
   - bob
-  - idea-backend:
-      memory: "8g"
 packages:
  - unzip
 repos:
