@@ -1,15 +1,17 @@
-name: tpl-incus-spawn
-description: Recursive Development of Incus Spawn (isx)
+name: tpl-isx
+description: isx - Recursive Development Environment for isx
 parent: tpl-mydev
 tools:
   - graalvm
-  - vscode-remote
   - claude: {model: claude-opus-4-6}
+  - zmx
 default-action: claude
 repos:
   - url: https://github.com/Sanne/incus-spawn/
     path: ~/incus-spawn
     prime: mvn -B dependency:resolve
   - url: https://github.com/Sanne/incus-spawn-templates/
-    path: ~/incus-spawn-templates
   - url: https://github.com/Sanne/incus-spawn-images/
+  - url: https://github.com/Sanne/homebrew-tap.git
+  - url: https://github.com/Sanne/isx-apt-releases.git
+

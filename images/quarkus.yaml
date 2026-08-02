@@ -12,5 +12,5 @@ packages:
 repos:
   - url: https://github.com/quarkusio/quarkus.git
     path: ~/quarkus
-  - url: https://github.com/quarkusio/quarkus-quickstarts
+  - url: https://github.com/quarkusio/quarkus-quickstarts.git
     path: ~/quarkus-quickstarts
