@@ -14,4 +14,5 @@ repos:
   - url: https://github.com/Sanne/incus-spawn-images/
   - url: https://github.com/Sanne/homebrew-tap.git
   - url: https://github.com/Sanne/isx-apt-releases.git
-
+  - url: https://github.com/tamboui/tamboui
+  - url: https://github.com/quarkusio/quarkus.git
