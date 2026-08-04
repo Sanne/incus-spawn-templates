@@ -1,6 +1,6 @@
 name: tpl-openjdk
 description: OpenJDK development (JDK + build deps + source)
-parent: tpl-dev
+parent: tpl-mydev
 packages:
   - java-26-openjdk-devel
   - autoconf
