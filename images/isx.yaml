@@ -9,7 +9,7 @@ default-action: claude
 repos:
   - url: https://github.com/Sanne/incus-spawn/
     path: ~/incus-spawn
-    prime: mvn -B dependency:resolve
+    prime: mvn package -DskipTests -B
   - url: https://github.com/Sanne/incus-spawn-templates/
   - url: https://github.com/Sanne/incus-spawn-images/
   - url: https://github.com/Sanne/homebrew-tap.git
