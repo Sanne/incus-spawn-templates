@@ -7,6 +7,9 @@ packages:
   - alsa-lib-devel
   - capstone-devel
   - cups-devel
+  - file
+  - gawk
+  - cpio
   - fontconfig-devel
   - freetype-devel
   - libXtst-devel
