@@ -1,5 +1,7 @@
 name: tpl-mydev
 description: Host-specific sharing layer
 parent: tpl-java
+tools:
+  - claude
 packages:
   - tig
