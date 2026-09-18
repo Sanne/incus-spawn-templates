@@ -12,6 +12,6 @@ packages:
 repos:
   - url: https://github.com/quarkusio/quarkus.git
     path: ~/quarkus
-    prime: mvnd -T1 -Dquickly
+    prime: mvnd -b singlethreaded -Dquickly
   - url: https://github.com/quarkusio/quarkus-quickstarts.git
     path: ~/quarkus-quickstarts
