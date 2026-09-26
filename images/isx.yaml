@@ -6,6 +6,29 @@ tools:
   - claude: {model: claude-opus-4-6}
   - zmx
 default-action: claude
+packages:
+  # Appliance kernel build (appliance/kernel/build-kernel.sh)
+  - gcc
+  - make
+  - flex
+  - bison
+  - bc
+  - elfutils-libelf-devel
+  - openssl-devel
+  - perl
+  - zstd
+  # Cross-building the other arch's kernel. Templates cannot select packages
+  # per arch, so both pairs are listed; the one matching the host goes unused.
+  - gcc-aarch64-linux-gnu
+  - binutils-aarch64-linux-gnu
+  - gcc-x86_64-linux-gnu
+  - binutils-x86_64-linux-gnu
+  # Appliance boot test (appliance/test-boot.sh); only the host arch's
+  # emulator is used, the other is listed for the same reason as above.
+  - qemu-system-x86-core
+  - qemu-system-aarch64-core
+  - btrfs-progs
+  - nmap-ncat
 repos:
   - url: https://github.com/Sanne/incus-spawn/
     path: ~/incus-spawn
