@@ -1,5 +1,5 @@
 name: tpl-quarkus
-description: Quarkus development (JDK + Maven + Quarkus source)
+description: Quarkus development box
 parent: tpl-mydev
 tools:
   - podman
@@ -11,7 +11,6 @@ packages:
  - unzip
 repos:
   - url: https://github.com/quarkusio/quarkus.git
-    path: ~/quarkus
     prime: mvnd -b singlethreaded -Dquickly
   - url: https://github.com/quarkusio/quarkus-quickstarts.git
     path: ~/quarkus-quickstarts
