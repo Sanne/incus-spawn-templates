@@ -19,8 +19,10 @@ downloads:
       /opt/jtreg/bin/jtreg: /usr/local/bin/jtreg
 
 env:
-  - export JTREG_HOME=/opt/jtreg
-  - export JTREG_JAVA=/usr/lib/jvm/java-latest-openjdk
+  - name: JTREG_HOME
+    value: /opt/jtreg
+  - name: JTREG_JAVA
+    value: /usr/lib/jvm/java-latest-openjdk
 
 run:
   - chmod -R a+rX /opt/jtreg

@@ -22,6 +22,7 @@ downloads:
       /opt/graalvm-25.4.4.1.1+1.1/bin/native-image: /usr/local/bin/native-image
 
 env:
-  - export GRAALVM_HOME=/opt/graalvm-25.4.4.1.1+1.1
+  - name: GRAALVM_HOME
+    value: /opt/graalvm-25.4.4.1.1+1.1
 
 verify: native-image --version

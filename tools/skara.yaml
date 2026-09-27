@@ -34,6 +34,9 @@ env:
   # dir on PATH is what makes `git jcheck` etc. resolve as git subcommands.
   # Not symlinked into /usr/local/bin because each launcher does
   # DIR=$(dirname "$0") and expects ../image alongside it.
-  - export PATH=/opt/skara/bin:$PATH
+  - name: PATH
+    value: /opt/skara/bin
+    strategy: prepend
+    separator: ":"
 
 verify: /opt/skara/bin/git-jcheck --version
