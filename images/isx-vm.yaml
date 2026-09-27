@@ -1,0 +1,6 @@
+name: tpl-isx-vm
+description: tpl-isx as a VM, for testing isx against a nested Incus
+parent: tpl-isx
+type: kvm
+packages:
+  - incus

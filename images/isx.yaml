@@ -3,7 +3,7 @@ description: isx - Recursive Development Environment for isx
 parent: tpl-mydev
 tools:
   - graalvm
-  - claude: {model: claude-opus-4-6}
+  - claude: {model: claude-opus-5-5}
   - zmx
 default-action: claude
 packages:
@@ -39,3 +39,6 @@ repos:
   - url: https://github.com/Sanne/isx-apt-releases.git
   - url: https://github.com/tamboui/tamboui
   - url: https://github.com/quarkusio/quarkus.git
+  - url: https://github.com/Sanne/isx-presentations/
+agent_note: |
+   This very same environment is running within an instance of isx
