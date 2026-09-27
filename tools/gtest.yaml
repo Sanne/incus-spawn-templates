@@ -22,6 +22,7 @@ run:
   - chmod -R a+rX /opt/googletest-1.14.0
 
 env:
-  - export GTEST_HOME=/opt/gtest
+  - name: GTEST_HOME
+    value: /opt/gtest
 
 verify: test -f /opt/gtest/googletest/include/gtest/gtest.h
