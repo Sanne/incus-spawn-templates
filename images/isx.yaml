@@ -41,5 +41,12 @@ repos:
   - url: https://github.com/tamboui/tamboui
   - url: https://github.com/quarkusio/quarkus.git
   - url: https://github.com/Sanne/isx-presentations/
+  # Private: the briefs agents follow when working on isx issues. Cloned at build with the
+  # default GitHub account, which must have read access. Every brief pulls it on start.
+  - url: https://github.com/Sanne/isx-workflow.git
+    path: ~/isx-workflow
+    prime: bin/install-skills.sh
 agent_note: |
-   This very same environment is running within an instance of isx
+   This very same environment is running within an instance of isx.
+   The workflow for issue work on incus-spawn is in ~/isx-workflow (WORKFLOW.md); its briefs
+   are installed as skills. When dispatched on an issue, follow the brief you were given.
