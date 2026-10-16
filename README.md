@@ -19,7 +19,7 @@ Then build and branch:
 
 ```shell
 isx build tpl-quarkus
-isx branch tpl-quarkus my-feature
+isx branch my-feature --from tpl-quarkus
 ```
 
 ## Templates
@@ -35,7 +35,7 @@ isx branch tpl-quarkus my-feature
 | `tpl-incus-spawn` | `tpl-java` | incus-spawn itself — recursive development with Incus and COPR tools |
 | `tpl-graalvm-dev` | `tpl-dev` | GraalVM development — `mx`, labsjdk, the `oracle/graal` source |
 
-Most templates inherit the `tpl-java` chain, which provides JDK 25, Maven, Claude Code, GitHub CLI, and tmux.
+Most templates inherit the `tpl-java` chain, which provides JDK 25, Maven, Podman, GitHub CLI, Starship, and tmux. It does not install Claude Code: templates that hang off `tpl-mydev` get it from there.
 
 ### Working on GraalVM
 
@@ -44,7 +44,7 @@ Most templates inherit the `tpl-java` chain, which provides JDK 25, Maven, Claud
 in `~/graal`:
 
 ```shell
-isx branch tpl-graalvm-dev graal-work
+isx branch graal-work --from tpl-graalvm-dev
 cd compiler && mx build
 ```
 
