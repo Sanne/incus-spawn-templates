@@ -28,14 +28,15 @@ isx branch my-feature --from tpl-quarkus
 |----------|--------|----------------------------------------------------------------------|
 | `tpl-dev` | `tpl-minimal` | Podman, GitHub CLI, Starship, tmux                                   |
 | `tpl-java` | `tpl-dev` | JDK 25 + Maven                                                       |
-| `tpl-quarkus` | `tpl-java` | Quarkus + quickstarts source, Podman, Gradle                         |
-| `tpl-hibernate-orm` | `tpl-java` | Hibernate ORM source, Podman, Gradle                                 |
+| `tpl-mydev` | `tpl-java` | Shared layer under the project templates: Claude Code, tig           |
+| `tpl-quarkus` | `tpl-mydev` | Quarkus + quickstarts source, Podman, GraalVM, mvnd                  |
+| `tpl-hibernate-orm` | `tpl-mydev` | Hibernate ORM source, Podman, Gradle, `idea-backend`                 |
 | `tpl-hibernate-reactive` | `tpl-hibernate-orm` | Hibernate Reactive source (includes ORM)                             |
-| `tpl-tamboui` | `tpl-java` | Tamboui TUI framework source, Gradle, selected skills                |
-| `tpl-incus-spawn` | `tpl-java` | incus-spawn itself — recursive development with Incus and COPR tools |
+| `tpl-tamboui` | `tpl-mydev` | Tamboui TUI framework source, Gradle, `idea-backend`, selected skills |
+| `tpl-isx` | `tpl-mydev` | incus-spawn and its sibling repos, GraalVM, zmx, `/dev/kvm`          |
 | `tpl-graalvm-dev` | `tpl-dev` | GraalVM development — `mx`, labsjdk, the `oracle/graal` source |
 
-Most templates inherit the `tpl-java` chain, which provides JDK 25, Maven, Podman, GitHub CLI, Starship, and tmux. It does not install Claude Code: templates that hang off `tpl-mydev` get it from there.
+Most templates inherit the `tpl-java` chain, which provides JDK 25, Maven, Podman, GitHub CLI, Starship, and tmux. That chain has no Claude Code: the templates under `tpl-mydev` get it from there, and `tpl-graalvm-dev` has none.
 
 ### Working on GraalVM
 
