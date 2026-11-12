@@ -70,6 +70,7 @@ OpenSSL 3.5+ strict verification.
 | `labsjdk` | JVMCI-enabled labsjdk fetched by `mx` into `/opt/jdks` and set as `JAVA_HOME` (param: `jdk_id`) |
 | `jtreg` | JTReg test harness (installed to `/opt`, `jtreg` on PATH) |
 | `pinchtab` | [PinchTab](https://github.com/pinchtab/pinchtab) browser control for agents — headless Chromium, the `pinchtab` skill (params: `allowed_domains`, `mcp`) |
+| `mise` | mise tool version manager (from the jdxcode/mise COPR, shims on PATH) |
 
 ### Giving an agent a browser
 

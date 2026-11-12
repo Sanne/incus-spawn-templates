@@ -1,0 +1,16 @@
+name: mise
+description: mise tool version manager from the jdxcode/mise COPR, shims on PATH for login shells
+
+package_repos:
+  - type: copr
+    name: jdxcode/mise
+packages:
+  - mise
+
+env:
+  - name: PATH
+    value: /home/agentuser/.local/share/mise/shims
+    strategy: prepend
+    separator: ":"
+
+verify: mise --version
