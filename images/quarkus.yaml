@@ -5,6 +5,8 @@ tools:
   - podman
   - graalvm
   - mvnd
+  # Every agent here reads dependency sources through it, from the clones below and ~/.m2
+  - jasolo
   - claude: {model: claude-sonnet-5}
 default-action: claude
 packages:
