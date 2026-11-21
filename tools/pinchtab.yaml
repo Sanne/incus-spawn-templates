@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://isx.run/schema/tool.json
 name: pinchtab
 description: PinchTab 0.15.2 — browser control for AI agents (headless Chromium + agent skill)
 
@@ -12,7 +13,7 @@ description: PinchTab 0.15.2 — browser control for AI agents (headless Chromiu
 # chromium-common and the Mesa drivers it recommends).
 packages:
   - chromium
-  - git   # the skill below is checked out from the release tag
+  - git   # the pinchtab-mcp skill below is checked out from the release tag
   - jq    # the skill's profile examples pipe instance JSON through it
 
 parameters:
@@ -38,36 +39,22 @@ downloads:
 run:
   # destination_file only guarantees a+r, and this one is an executable.
   - chmod 0755 /usr/local/bin/pinchtab
-  # isx keeps agent skills in one shared directory and lets Claude Code reach
-  # them through a ~/.claude/skills symlink. ClaudeSetup creates that link, but
-  # this tool must not depend on running after it — or on claude being in the
-  # template at all. Note the asymmetry: only Claude Code auto-discovers what
-  # lands here (CodexSetup and PiSetup link no skills directory), so under
-  # another agent the CLI still works but the skill is a file it must be
-  # pointed at.
-  - |
-    mkdir -p /home/agentuser/.agents/skills
-    if [ -d /home/agentuser/.claude ] && [ ! -L /home/agentuser/.claude/skills ]; then
-      rm -rf /home/agentuser/.claude/skills
-      ln -sfn /home/agentuser/.agents/skills /home/agentuser/.claude/skills
-    fi
-    chown -R agentuser:agentuser /home/agentuser/.agents
 
 run_as_user:
-  # The skills are versioned with the binary, so take them from the same tag.
-  # A blobless sparse clone fetches ~900 KB instead of the 29 MB working tree.
+  # The pinchtab-mcp skill is installed only with mcp=true, and a skills: entry
+  # cannot be conditional, so it is still copied here from the same tag as the
+  # binary. A blobless sparse clone fetches ~900 KB instead of the 29 MB tree.
   - |
     set -eu
+    [ "${param_mcp}" = "true" ] || exit 0
     rm -rf /tmp/pinchtab-skills
     git -c advice.detachedHead=false clone --quiet --depth 1 --branch v0.15.2 \
       --filter=blob:none --sparse \
       https://github.com/pinchtab/pinchtab.git /tmp/pinchtab-skills
-    git -C /tmp/pinchtab-skills sparse-checkout set skills
+    git -C /tmp/pinchtab-skills sparse-checkout set skills/pinchtab-mcp
     mkdir -p ~/.agents/skills
-    for skill in pinchtab $([ "${param_mcp}" = "true" ] && echo pinchtab-mcp); do
-      rm -rf ~/.agents/skills/"$skill"
-      cp -a /tmp/pinchtab-skills/skills/"$skill" ~/.agents/skills/"$skill"
-    done
+    rm -rf ~/.agents/skills/pinchtab-mcp
+    cp -a /tmp/pinchtab-skills/skills/pinchtab-mcp ~/.agents/skills/pinchtab-mcp
     rm -rf /tmp/pinchtab-skills
   # PinchTab's out-of-the-box allowlist is local-only, so without this an agent
   # cannot reach a single real site. Opening it up is the isx trade: the
@@ -105,5 +92,17 @@ run_as_user:
     else
       echo "pinchtab: mcp=true but Claude Code is not installed — skipping MCP registration" >&2
     fi
+
+# The skill an agent drives PinchTab with, whole (references/ included) and read
+# at the commit v0.15.2 names, so it describes the pinned binary's commands.
+# Re-derive the commit with each bump, from the publisher:
+#   git ls-remote https://github.com/pinchtab/pinchtab 'refs/tags/v0.15.2^{}'
+skills:
+  repo: pinchtab/pinchtab
+  ref: v0.15.2
+  commit: 96d1508b44721674e3bff2f3bbd21401ec270a63
+  path: skills
+  list:
+    - pinchtab
 
 verify: pinchtab --version
