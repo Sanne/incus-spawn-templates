@@ -163,6 +163,19 @@ jobs:
           df -h /
           sg incus-admin -c "incus storage info cow" || true
 
+      # A prime that writes its own log (mvn -l) leaves isx nothing to report but the exit code,
+      # so show the end of each such log in the build isx kept, and any process the kernel
+      # killed for memory.
+      - name: Failed build's logs
+        if: failure()
+        run: |
+          sudo dmesg | grep -iE 'out of memory|oom-kill|killed process' | tail -n 20 || true
+          for name in $(sg incus-admin -c "incus list -c n -f csv" | grep -- '-failed-build$'); do
+            # isx stops the build it keeps.
+            sg incus-admin -c "incus start $name" || true
+            sg incus-admin -c "incus exec $name -- sh -c 'free -m; for f in /home/*/*.log; do echo \"=== \$f\"; tail -n 150 \"\$f\"; done'" || true
+          done
+
       - name: Proxy log
         if: failure()
         run: tail -n 200 ~/.local/state/incus-spawn/proxy.log || true

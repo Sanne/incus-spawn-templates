@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://isx.run/schema/tool.json
 name: graalvm
-description: Oracle GraalVM 25.5 for JDK 25
+description: Oracle GraalVM 25.6 for JDK 25
 
 packages:
   - gcc
@@ -9,21 +9,21 @@ packages:
   - libstdc++-static
 
 downloads:
-  - url: https://gds.oracle.com/download/graal/25i5/latest/graalvm-jdk-25i5-25_linux-x64_bin.tar.gz
-    sha256: 90582f405cb89a825a43297cdacc7f427ce04039a249f5f0fc75c95b50600b08
+  - url: https://gds.oracle.com/download/graal/25i6/latest/graalvm-jdk-25i6-25_linux-x64_bin.tar.gz
+    sha256: c258365739c022ee2189bc83dac72c3627f34cb0b02668e4bd3969380ed54b69
     extract: /opt
     arch: x86_64
     links:
-      /opt/graalvm-25.5.5.0.3+1.1/bin/native-image: /usr/local/bin/native-image
-  - url: https://gds.oracle.com/download/graal/25i5/latest/graalvm-jdk-25i5-25_linux-aarch64_bin.tar.gz
-    sha256: c4e423cdbf21963329d4fb7846fdc2236dcd9cb3e996484d06c3b6d363b58a83
+      /opt/graalvm-25.6.5.1+4.1/bin/native-image: /usr/local/bin/native-image
+  - url: https://gds.oracle.com/download/graal/25i6/latest/graalvm-jdk-25i6-25_linux-aarch64_bin.tar.gz
+    sha256: aa02942ba8a8860e330737919d5b77c28489fc56661d500bdb1436ab96d11799
     extract: /opt
     arch: aarch64
     links:
-      /opt/graalvm-25.5.5.0.3+1.1/bin/native-image: /usr/local/bin/native-image
+      /opt/graalvm-25.6.5.1+4.1/bin/native-image: /usr/local/bin/native-image
 
 env:
   - name: GRAALVM_HOME
-    value: /opt/graalvm-25.5.5.0.3+1.1
+    value: /opt/graalvm-25.6.5.1+4.1
 
 verify: native-image --version
